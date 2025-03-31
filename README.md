@@ -2,8 +2,8 @@
 # CS210 Data Structures SP25
 ## Programming Assignment 2: Text-Based RPG Using Decision Trees
 
-### **Student Name:** `[Your Name]`  
-### **Student ID:** `[Your ID]`  
+### **Student Name:** `[Gilbert Venegas]`  
+### **Student ID:** `[132166681]`  
 
 ---
 
@@ -18,8 +18,8 @@ Example:
 ## **2. Folder & File Structure**
 (Explain the role of each file in your project.)
 
-- **`main.cpp`** → `[Describe its function]`  
-- **`GameDecisionTree.h`** → `[Explain what this file contains]`  
+- **`main.cpp`** → `[Main File was used for starting the code and locating the story file onto the program]`  
+- **`GameDecisionTree.h`** → `[Created the hash tree where I also included the 2 choices of going left or right]`  
 - **`Node.h`** → `[Explain what this file contains]`  
 - **`Story.h`** → `[Explain what this file contains]`  
 - **`story.txt`** → `[Explain how the game loads story events from this file]`  

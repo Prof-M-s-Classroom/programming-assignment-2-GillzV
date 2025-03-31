@@ -16,6 +16,7 @@ template <typename T>
 class GameDecisionTree {
 private:
     Node<T>* root;
+    unordered_map<int, Node<T>*> nodeMap;
 
 public:
     // TODO: Constructor
@@ -29,7 +30,6 @@ public:
             return;
         }
 
-        unordered_map<int, Node<T>*> nodeMap;
         string line;
 
         //  Creating the Nodes
@@ -37,20 +37,26 @@ public:
             stringstream ss(line);
             string token;
 
-            getline(ss, token, delimiter);
-            int eventNum = stoi(token);
+            string eventStr, desc, choice1, leftStr, choice2, rightStr;
 
-            getline(ss, token, delimiter);
-            string desc = token;
+            if (!getline(ss, eventStr, delimiter)) continue;
+            if (!getline(ss, desc, delimiter)) continue;
+            if (!getline(ss, choice1, delimiter)) continue;
+            if (!getline(ss, leftStr, delimiter)) continue;
+            if (!getline(ss, choice2, delimiter)) continue;
+            if (!getline(ss, rightStr, delimiter)) continue;
 
-            getline(ss, token, delimiter);
-            int left = stoi(token);
+            try {
+                int eventNum = stoi(eventStr);
+                int left = stoi(leftStr);
+                int right = stoi(rightStr);
 
-            getline(ss, token, delimiter);
-            int right = stoi(token);
-
-            T story{desc, eventNum, left, right};
-            nodeMap[eventNum] = new Node<T>(story);
+                T story(desc, eventNum, choice1, left, choice2, right);
+                nodeMap[eventNum] = new Node<T>(story);
+            } catch (invalid_argument& e) {
+                cerr << "Error parsing line: " << line << "\n";
+                continue; // skip bad lines
+            }
         }
 
         // Connecting Children Nodes
@@ -58,15 +64,34 @@ public:
             int l = node->data.leftEventNumber;
             int r = node->data.rightEventNumber;
 
-            node->left = (l != -1) ? nodeMap[l] : nullptr;
-            node->right = (r != -1) ? nodeMap[r] : nullptr;
+            // Connect left child
+            if (l != -1) {
+                auto it = nodeMap.find(l);
+                if (it != nodeMap.end()) {
+                    node->left = it->second;
+                } else {
+                    node->left = nullptr;
+                }
+            } else {
+                node->left = nullptr;
+            }
+
+            // Connect right child
+            if (r != -1) {
+                auto it = nodeMap.find(r);
+                if (it != nodeMap.end()) {
+                    node->right = it->second;
+                } else {
+                    node->right = nullptr;
+                }
+            } else {
+                node->right = nullptr;
+            }
         }
 
         // Setting the Root Node
         root = nodeMap.count(1) ? nodeMap[1] : nullptr;
     }
-
-
 
     // TODO: Function to start the game and traverse the tree based on user input
     void playGame() {
@@ -79,14 +104,20 @@ public:
         while (true) {
             cout << "\n" << current->data.description << "\n";
 
+            // Check if this is an ending (both paths are -1)
             if (current->data.leftEventNumber == -1 && current->data.rightEventNumber == -1) {
                 cout << "The End.\n";
                 break;
             }
 
-            cout << "Enter your choice:\n"
-                 << "1) Go Left\n"
-                 << "2) Go Right\n";
+            // Only show choices that lead somewhere
+            cout << "Enter your choice:\n";
+            if (current->data.leftEventNumber != -1) {
+                cout << "1) " << current->data.choice1Text << "\n";
+            }
+            if (current->data.rightEventNumber != -1) {
+                cout << "2) " << current->data.choice2Text << "\n";
+            }
 
             int choice;
             while (true) {
@@ -98,6 +129,10 @@ public:
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 } else if (choice != 1 && choice != 2) {
                     cout << "Invalid choice. Please enter 1 or 2.\n";
+                } else if (choice == 1 && current->data.leftEventNumber == -1) {
+                    cout << "That path leads to certain death. Choose another option.\n";
+                } else if (choice == 2 && current->data.rightEventNumber == -1) {
+                    cout << "That path leads to certain death. Choose another option.\n";
                 } else {
                     break;
                 }
@@ -106,15 +141,31 @@ public:
             if (choice == 1) {
                 if (current->left) {
                     current = current->left;
+                } else if (current->data.leftEventNumber == -1) {
+                    cout << "The End.\n";
+                    break;
                 } else {
-                    cout << "No further path in that direction. The story ends here.\n";
+                    // Find the ending node
+                    auto it = nodeMap.find(current->data.leftEventNumber);
+                    if (it != nodeMap.end()) {
+                        cout << it->second->data.description << "\n";
+                    }
+                    cout << "The End.\n";
                     break;
                 }
             } else if (choice == 2) {
                 if (current->right) {
                     current = current->right;
+                } else if (current->data.rightEventNumber == -1) {
+                    cout << "The End.\n";
+                    break;
                 } else {
-                    cout << "No further path in that direction. The story ends here.\n";
+                    // Find the ending node
+                    auto it = nodeMap.find(current->data.rightEventNumber);
+                    if (it != nodeMap.end()) {
+                        cout << it->second->data.description << "\n";
+                    }
+                    cout << "The End.\n";
                     break;
                 }
             }
