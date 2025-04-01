@@ -175,4 +175,3 @@ public:
 };
 
 #endif // GAMEDECISIONTREE_H
-

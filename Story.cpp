@@ -1,15 +1,11 @@
 #include "Story.h"
 
-// Default constructor
-Story::Story()
-    : description(""), eventNumber(0), leftEventNumber(-1), rightEventNumber(-1),
-      choice1Text(""), choice2Text("") {}
+// TODO: Default constructor
+Story::Story() : description(""), eventNumber(0), leftEventNumber(-1), rightEventNumber(-1) {}
 
-
+// TODO: Parameterized constructor
 Story::Story(std::string desc, int num, int leftNum, int rightNum)
-    : description(desc), eventNumber(num), leftEventNumber(leftNum), rightEventNumber(rightNum),
-      choice1Text(""), choice2Text("") {}
-
+        : description(desc), eventNumber(num), leftEventNumber(leftNum), rightEventNumber(rightNum) {}
 
 Story::Story(std::string desc, int num, std::string choice1, int leftNum, std::string choice2, int rightNum)
     : description(desc), eventNumber(num),

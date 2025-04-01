@@ -3,7 +3,6 @@
 
 #include <string>
 using namespace std;
-
 class Story {
 public:
     string description;
@@ -16,11 +15,12 @@ public:
     // Default constructor
     Story();
 
-    // 4-parameter constructor (legacy support, optional)
+    // Parameterized constructor
     Story(string desc, int num, int leftNum, int rightNum);
 
-    // ✅ New constructor with labeled choices
     Story(string desc, int num, string choice1, int leftNum, string choice2, int rightNum);
+
 };
 
 #endif // STORY_H
+
