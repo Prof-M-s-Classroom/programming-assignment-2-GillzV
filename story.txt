@@ -1,6 +1,79 @@
-1 | You wake up in a forest clearing. There are two paths. | 2 | 3
-2 | You follow the path to the left and encounter a river. | 4 | 5
-3 | You go right and find an old cabin. | 5 | 6
-4 | You swim across the river and find a treasure chest. | -1 | -1
-5 | You find a hidden passageway that leads to a secret room. | 7 | -1
-6 | The cabin is empty. You find a trapdoor leading downwards. | -1
+1 | You wake up in a wrecked hospital with zombies outside. | Sneak out the back | 2 | Fight your way through | 3
+2 | You find an alley and hear footsteps behind you. | Hide in a dumpster | 4 | Run to the street | 5
+3 | You grab a metal pipe and start swinging. | Escape through emergency exit | 6 | Lock yourself in a room | 7
+4 | You hold your breath as zombies pass. | Wait it out | 8 | Crawl into a vent | 9
+5 | You sprint down the road and see a burning car. | Take cover behind it | 10 | Search it for supplies | 11
+6 | You burst through the doors into the street. | Run to the woods | 12 | Duck into a convenience store | 13
+7 | You barricade the door with furniture. | Wait silently | 14 | Call for help | 15
+8 | A stray dog barks, alerting the horde. | Run | 16 | Stay frozen | 17
+9 | The vent leads to a laundry room. | Check the lockers | 18 | Exit through back door | 19
+10 | You find a flare gun. | Fire it to distract zombies | 20 | Save it | 21
+11 | A zombie grabs you while searching. | Fight back | 22 | Try to escape | 23
+12 | The woods are quiet... too quiet. | Climb a tree | 24 | Keep walking | 25
+13 | The store has supplies and a map. | Take everything | 26 | Just grab the essentials | 27
+14 | Zombies sniff you out. | Crawl into ceiling | 28 | Use chair to fight | 29
+15 | No one responds, but the noise draws attention. | Hide in closet | 30 | Jump out window | 31
+16 | You trip over a body and fall. | Get up quickly | 32 | Play dead | 33
+17 | A zombie peeks in and moves on. | Sneak away | 34 | Stay put longer | 35
+18 | You find a medkit. | Take it | 36 | Leave it | 37
+19 | The back door is jammed. | Force it open | 38 | Look for another exit | 39
+20 | Zombies move away toward the flare. | Run to safety | 40 | Head toward a gas station | 41
+21 | You keep the flare for later. | Use it inside building | 42 | Drop it accidentally | 43
+22 | You beat the zombie back. | Keep fighting | 44 | Run | 45
+23 | You escape but are bitten. | Ignore the bite | 46 | Try to patch it | 47
+24 | You see a military outpost in the distance. | Climb down | 48 | Stay hidden and watch | 49
+25 | You find a wounded survivor. | Help him | 50 | Leave him | 51
+26 | The noise of grabbing things alerts nearby zombies. | Flee | 52 | Fight | 53
+27 | You quietly exit through the back. | Follow alley | 54 | Climb rooftop ladder | 55
+28 | The ceiling collapses under you. | Crawl out | 56 | Hide under debris | 57
+29 | You hold them off but get bitten. | Keep going | 58 | Accept fate | 59
+30 | It's safe... for now. | Sleep | 60 | Plan escape | 61
+31 | You leap out the window into the street. | Run into subway | 62 | Climb onto a bus | 63
+32 | You make it up and keep running. | Keep sprinting | 64 | Hide in garage | 65
+33 | The zombies lose interest. | Crawl away | 66 | Try to contact help | 67
+34 | You find an unlocked bike. | Ride it | 68 | Sabotage it to lure zombies away | 69
+35 | A survivor finds you. | Trust them | 70 | Knock them out | 71
+36 | The medkit helps later when you're injured. | Keep moving | 72 | Rest a bit | 73
+37 | You regret not taking it. | Search again | 74 | Give up | 75
+38 | You break the door open and escape. | Run | 76 | Grab supplies | 77
+39 | You find another exit. | Escape building | 78 | Return for more | 79
+40 | You reach an evacuation helicopter. | Board it | -1 | Stay hidden | -1
+41 | The gas station is a trap — you’re surrounded. | -1 | -1
+42 | The flare scares off zombies inside. | Escape | -1 | -1
+43 | The flare lights the building on fire. | Burned alive | -1 | -1
+44 | You clear a path and escape. | -1 | -1
+45 | You run but are bitten. | -1 | -1
+46 | You start to feel weak. | -1 | -1
+47 | You patch it up and stay alive. | -1 | -1
+48 | You make it to the outpost — survivors welcome you. | -1 | -1
+49 | You see it overrun by zombies. | -1 | -1
+50 | The survivor betrays you. | -1 | -1
+51 | You avoid trouble and keep moving. | -1 | -1
+52 | You run and escape. | -1 | -1
+53 | You're overwhelmed. | -1 | -1
+54 | The alley leads to a safe zone. | -1 | -1
+55 | You’re spotted from the rooftop and rescued. | -1 | -1
+56 | You crawl out to safety. | -1 | -1
+57 | You suffocate under debris. | -1 | -1
+58 | You push through and find a cure lab. | -1 | -1
+59 | You sit down and turn... | -1 | -1
+60 | You sleep and never wake up. | -1 | -1
+61 | You plan your escape and find a working radio. | -1 | -1
+62 | The subway is a dead end. | -1 | -1
+63 | The bus takes you to the evac point. | -1 | -1
+64 | You collapse from exhaustion. | -1 | -1
+65 | You hide and survive the night. | -1 | -1
+66 | You escape through a storm drain. | -1 | -1
+67 | You contact military and are rescued. | -1 | -1
+68 | You ride out of the city. | -1 | -1
+69 | The distraction works. You escape. | -1 | -1
+70 | The survivor helps you reach safety. | -1 | -1
+71 | You’re attacked by their group. | -1 | -1
+72 | You survive but become sick. | -1 | -1
+73 | You’re caught while resting. | -1 | -1
+74 | You find the kit still there. | -1 | -1
+75 | You sit and let the horde find you. | -1 | -1
+76 | You run into a rescue team. | -1 | -1
+77 | You’re too slow and caught. | -1 | -1
+78 | You reunite with a survivor group. | -1 | -1
+79 | You trip an alarm and are swarmed. | -1 | -1
